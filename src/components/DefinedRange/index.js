@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from '../../styles';
 import { defaultInputRanges, defaultStaticRanges } from '../../defaultRanges';
 import { rangeShape } from '../DayCell';
-import InputRangeField from '../InputRangeField';
+// import InputRangeField from '../InputRangeField';
 import cx from 'classnames';
 
 class DefinedRange extends Component {
@@ -49,7 +49,7 @@ class DefinedRange extends Component {
       headerContent,
       footerContent,
       onPreviewChange,
-      inputRanges,
+      // inputRanges,
       staticRanges,
       ranges,
       renderStaticRangeLabel,
@@ -98,7 +98,7 @@ class DefinedRange extends Component {
             );
           })}
         </div>
-        <div className={styles.inputRanges}>
+        {/* <div className={styles.inputRanges}>
           {inputRanges.map((rangeOption, i) => (
             <InputRangeField
               key={i}
@@ -110,7 +110,7 @@ class DefinedRange extends Component {
               value={this.getRangeOptionValue(rangeOption)}
             />
           ))}
-        </div>
+        </div> */}
         {footerContent}
       </div>
     );

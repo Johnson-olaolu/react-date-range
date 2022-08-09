@@ -9,6 +9,7 @@ import {
   endOfWeek,
   isSameDay,
   differenceInCalendarDays,
+  addWeeks,
 } from 'date-fns';
 
 const defineds = {
@@ -24,6 +25,9 @@ const defineds = {
   endOfMonth: endOfMonth(new Date()),
   startOfLastMonth: startOfMonth(addMonths(new Date(), -1)),
   endOfLastMonth: endOfMonth(addMonths(new Date(), -1)),
+  startOfLastFourWeeks: startOfWeek(addWeeks(new Date(), -4)),
+  startOfLastSixMonths: startOfMonth(addMonths(new Date(), -6)),
+  startOfLastThreeMonths: startOfMonth(addMonths(new Date(), -4)),
 };
 
 const staticRangeHandler = {
@@ -43,48 +47,48 @@ export function createStaticRanges(ranges) {
 
 export const defaultStaticRanges = createStaticRanges([
   {
-    label: 'Today',
+    label: '4 Weeks',
     range: () => ({
-      startDate: defineds.startOfToday,
+      startDate: defineds.startOfLastFourWeeks,
       endDate: defineds.endOfToday,
     }),
   },
   {
-    label: 'Yesterday',
+    label: '3 Months',
     range: () => ({
-      startDate: defineds.startOfYesterday,
+      startDate: defineds.startOfLastThreeMonths,
       endDate: defineds.endOfYesterday,
     }),
   },
 
   {
-    label: 'This Week',
+    label: '6 Months',
     range: () => ({
-      startDate: defineds.startOfWeek,
+      startDate: defineds.startOfLastSixMonths,
       endDate: defineds.endOfWeek,
     }),
   },
   {
-    label: 'Last Week',
+    label: 'All Time',
     range: () => ({
-      startDate: defineds.startOfLastWeek,
-      endDate: defineds.endOfLastWeek,
+      startDate: null,
+      endDate: null,
     }),
   },
-  {
-    label: 'This Month',
-    range: () => ({
-      startDate: defineds.startOfMonth,
-      endDate: defineds.endOfMonth,
-    }),
-  },
-  {
-    label: 'Last Month',
-    range: () => ({
-      startDate: defineds.startOfLastMonth,
-      endDate: defineds.endOfLastMonth,
-    }),
-  },
+  // {
+  //   label: 'This Month',
+  //   range: () => ({
+  //     startDate: defineds.startOfMonth,
+  //     endDate: defineds.endOfMonth,
+  //   }),
+  // },
+  // {
+  //   label: 'Last Month',
+  //   range: () => ({
+  //     startDate: defineds.startOfLastMonth,
+  //     endDate: defineds.endOfLastMonth,
+  //   }),
+  // },
 ]);
 
 export const defaultInputRanges = [
